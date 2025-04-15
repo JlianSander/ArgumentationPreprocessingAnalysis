@@ -8,11 +8,13 @@ using namespace std;
 void static print_usage()
 {
 	cout << "Usage: " << PROGRAM_NAME << " -d <directory> -q <query-file-extension> -c <csv-file> \n\n";
-	cout << "  <directory>    container of  argumentation frameworks\n";
-	cout << "Options:\n";
-	cout << "  --help      Displays this help message.\n";
-	cout << "  --version   Prints version and author information.\n";
-	cout << "  --formats   Prints available file formats.\n";
+	cout << "  <directory>    container of  argumentation frameworks" << endl;
+	cout << "  <query-file-extension>    extension of the query argument; e.g. '.arg'" << endl;
+	cout << "  <csv-file>    location to save the csv-file to" << endl;
+	cout << "Options:" << endl;
+	cout << "  --help      Displays this help message." << endl;
+	cout << "  --version   Prints version and author information." << endl;
+	cout << "  --formats   Prints available file formats." << endl;
 }
 
 /*===========================================================================================================================================================*/
@@ -87,12 +89,16 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
+	if (query_file_extension.empty()) {
+		cerr << argv[0] << ": The extension of the query argument must be specified via -q flag e.g. '.arg'" << endl;
+		return 1;
+	}
+
 	if (csv_file_path.empty()) {
 		csv_file_path = std::string(".") + fs::path::preferred_separator + std::string("Data_Tmp.csv");
 	}
 
 	cout << "Process files in " << dir << endl;
-	cout << "Save results in " << csv_file_path << endl;
 
 	//object to store and process observations
 	Observation obsv = Observation(csv_file_path);
@@ -107,9 +113,19 @@ int main(int argc, char **argv)
 	//iterate through files
 	for (vec::const_iterator it(v.begin()), it_end(v.end()); it != it_end; ++it)
 	{
-		Processor::process_file(*it, obsv, query_file_extension);
-		obsv.write_csv(*it);
+		fs::directory_entry file = *it;
+		string extension = file.path().extension();
+		string arg_extension = fs::path("abc" + query_file_extension).extension();
+		if (file.path().extension() == fs::path("abc" + query_file_extension).extension())
+		{
+			continue;
+		}
+
+		Processor::process_file(file, obsv, query_file_extension);
+		obsv.write_csv(file);
 	}
+
+	cout << "Saved results in " << csv_file_path << endl;
 
 	return 0;
 }
