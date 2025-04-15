@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{24929482-b8c8-439d-8882-3ef0b13e8fe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\logic">
+      <UniqueIdentifier>{077fbf29-ea67-4486-ae4f-56f75e2cd598}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\util">
+      <UniqueIdentifier>{3dbaac35-6561-423e-8312-c52d6f3e2b7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{3cb895b5-7b3a-4155-acfe-ba38905998f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\logic">
+      <UniqueIdentifier>{23affa7b-c923-46ee-9944-dd13bf082db4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\src">
+      <UniqueIdentifier>{b9bab252-817d-4661-9914-86ad4223c5d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Main.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\logic\AF.h">
+      <Filter>include\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="include\logic\ConeOfInfluence.h">
+      <Filter>include\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="include\logic\Enums.h">
+      <Filter>include\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="include\logic\Parser.h">
+      <Filter>include\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="include\logic\PreProcessor.h">
+      <Filter>include\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="include\logic\Reduct.h">
+      <Filter>include\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\ArrayBitSet.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\MemoryWatchDog.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\Printer.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\ToolsList.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\logic\Observation.h">
+      <Filter>include\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="include\logic\Processor.h">
+      <Filter>include\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\FileSystemInclude.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logic\AF.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logic\ConeOfInfluence.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logic\Enums.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logic\Parser.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logic\PreProcessor.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logic\Reduct.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\MemoryWatchDog.c">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\Printer.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\ToolsList.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logic\Processor.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logic\Observation.cpp">
+      <Filter>src\logic</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="makefile" />
+  </ItemGroup>
+</Project>
