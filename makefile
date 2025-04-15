@@ -35,7 +35,7 @@ INCLUDE_UTIL	=	./include/util/
 #--------------------------------------------------------------------------#
 
 CC	=	gcc
-CFLAGS	?=	-Wall -std=c++17
+CFLAGS	?=	-Wall -std=c17
 CXX = g++
 CXXFLAGS ?= -Wall -std=c++17
 LinkerLib = -lstdc++fs
