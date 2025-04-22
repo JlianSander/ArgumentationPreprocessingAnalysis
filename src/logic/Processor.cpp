@@ -4,7 +4,7 @@ using namespace std;
 /*===========================================================================================================================================================*/
 /*===========================================================================================================================================================*/
 
-static uint32_t read_query(fs::directory_entry &file, string query_file_extension)
+static string read_query(fs::directory_entry &file, string query_file_extension)
 {
 	fs::path query_file{ file.path() }, extension_query{ query_file_extension };
 	query_file.replace_extension(query_file_extension);
@@ -22,7 +22,7 @@ static uint32_t read_query(fs::directory_entry &file, string query_file_extensio
 	std::istringstream iss(line);
 	iss >> query;
 
-	return std::stoi(query);
+	return query;
 }
 
 /*===========================================================================================================================================================*/
@@ -33,21 +33,25 @@ void Processor::process_file(fs::directory_entry file, Observation &observation,
 	// parse the framework
 	AF framework;
 	string file_format = file.path().extension();
+	uint32_t query_argument;
 
+	//parse framework and query argument
 	switch (Enums::string_to_format(file_format)) {
 	case I23:
-		framework = Parser::parse_af_i23(file.path());
+		framework = Parser::parse_af_i23(file.path(), read_query(file, query_file_extension), query_argument);
 		break;
 	case TGF:
-		framework = Parser::parse_af_tgf(file.path());
+		framework = Parser::parse_af_tgf(file.path(), read_query(file, query_file_extension), query_argument);
 		break;
 	default:
 		cerr << file_format << ": Unsupported file format\n";
 		return;
 	};
-
-	//read query argument
-	uint32_t query_argument = read_query(file, query_file_extension);
+	if (query_argument == 0)
+	{
+		cout << "ERROR query argument could not be parsed in file: " << file.path() << endl;
+		exit(1);
+	}
 
 	//count args of initial framework
 	observation.Number_Args_AF = framework.num_args;

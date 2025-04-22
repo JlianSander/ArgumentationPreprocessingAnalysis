@@ -29,16 +29,20 @@ public:
 	/// at the specified path.
 	/// </summary>
 	/// <param name="file">String that describes the location of the file to open.</param>
+	/// <param name="query"> String that describes the query argument.</param>
+	/// <param name="query_out">[Output] Output-variable of the parsed number of the query argument.</param>
 	/// <returns> Object of the framework to create.<\returns>
-	static AF parse_af_i23(string file);
+	static AF parse_af_i23(string file, string query, uint32_t &query_out);
 
 	/// <summary>
 	/// This method parses an abstract argumentation framework from a file, which complies to the tgf format, located 
 	/// at the specified path.
 	/// </summary>
 	/// <param name="file">String that describes the location of the file to open.</param>
+	/// <param name="query"> String that describes the query argument.</param>
+	/// <param name="query_out">[Output] Output-variable of the parsed number of the query argument.</param>
 	/// <returns> Object of the framework to create.<\returns>
-	static AF parse_af_tgf(string file);
+	static AF parse_af_tgf(string file, string query, uint32_t &query_out);
 };
 
 #endif

@@ -5,7 +5,7 @@ using namespace std;
 /*===========================================================================================================================================================*/
 /*===========================================================================================================================================================*/
 
-AF Parser::parse_af_i23(string file)
+AF Parser::parse_af_i23(string file, string query, uint32_t &query_out)
 {
 	ifstream input;
 	input.open(file);
@@ -43,13 +43,22 @@ AF Parser::parse_af_i23(string file)
 
 	input.close();
 	framework.finish_initilization();
+
+	//parse query argument
+	if (!query.empty()) {
+		query_out = std::stoi(query);
+	}
+	else {
+		query_out = 0;
+	}
+
 	return framework;
 }
 
 /*===========================================================================================================================================================*/
 /*===========================================================================================================================================================*/
 
-AF Parser::parse_af_tgf(string file) {
+AF Parser::parse_af_tgf(string file, string query, uint32_t &query_out) {
 	ifstream input;
 	input.open(file);
 
@@ -84,5 +93,13 @@ AF Parser::parse_af_tgf(string file) {
 
 	input.close();
 	framework.finish_initilization();
+
+	//parse query argument
+	if (!query.empty()) {
+		query_out =  arg_str_to_int[query];
+	}
+	else {
+		query_out = 0;
+	}
 	return framework;
 }
